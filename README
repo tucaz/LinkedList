@@ -1,0 +1,21 @@
+I needed a linked list to use in Javascript and couldn't find one so I wrote a simple implementation of it. Not sure if it is the best way, but it works for me :)
+
+Using it:
+
+var ll = new LinkedList();
+ll.add(1);
+ll.add(2);
+ll.add(3);
+
+for(var n = ll.head; n; n = n.getNext())
+	console.log('Value: '+ n.getValue() + ' | Previous: ' + (n.getPrevious() == null ? '' : n.getPrevious().getValue()));
+	
+ll.insertAfter(new Node(3), 4);
+
+for(var n = ll.head; n; n = n.getNext())
+	console.log('Value: '+ n.getValue() + ' | Previous: ' + (n.getPrevious() == null ? '' : n.getPrevious().getValue()));
+	
+ll.replace(new Node(1), 100);
+
+for(var n = ll.head; n; n = n.getNext())
+	console.log('Value: '+ n.getValue() + ' | Previous: ' + (n.getPrevious() == null ? '' : n.getPrevious().getValue()));
