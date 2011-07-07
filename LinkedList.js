@@ -127,20 +127,23 @@ LinkedList.prototype.remove = function(findValue)
 	{
 		if(currentNode.getValue() === node.getValue())
 		{			
-			if(this.head != null && this.head === currentNode)
-			{
+			if(this.head != null && this.head === currentNode && this.tail != null && this.tail === currentNode) {
+				currentNode.setPrevious(null);
+				currentNode.setNext(null);
+				this.head = null;
+				this.tail = null
+			}
+			else if(this.head != null && this.head === currentNode) {
 				var nextNode = currentNode.getNext();
 				nextNode.setPrevious(null);
 				this.head = nextNode;
 			}
-			else if(this.tail != null && this.tail === currentNode)
-			{
+			else if(this.tail != null && this.tail === currentNode) {
 				var previousNode = currentNode.getPrevious();
 				previousNode.setNext(null);
 				this.tail = previousNode;
 			}
-			else
-			{
+			else {
 				var nextNode = currentNode.getNext();
 				var previousNode = currentNode.getPrevious();
 				
