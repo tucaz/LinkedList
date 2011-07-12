@@ -12,7 +12,7 @@ $(document).ready( function () {
 		ll.add('Value1');
 		equals(1, ll.getSize());
 	});
-	test('linked list with one node, getHead() will recent last return value', function () {
+	test('linked list with one node, getHead() will return only value', function () {
 		expect(1);
 
 		var ll = new LinkedList();
@@ -242,6 +242,21 @@ $(document).ready( function () {
 
 		checkReadOnly(ll.getTail());
 	});
+	test('when comparing same nodes should be equal', function () {
+		expect(1);
+
+		var ll = new LinkedList(),
+			find1 = null,
+			find2 = null;
+
+		ll.add('Value1');
+		
+		find1 = ll.find('Value1');
+		find2 = ll.find('Value1');
+
+		equal(find1, find2, 'nodes are equal');
+	});
+	
 	function checkReadOnly(node) {
 		ok(typeof (node.setNext) == 'undefined');
 		ok(typeof (node.setPrevious) == 'undefined');
